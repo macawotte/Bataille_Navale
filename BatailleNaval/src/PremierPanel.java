@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -15,7 +16,6 @@ public class PremierPanel extends JPanel implements ActionListener{
 	private Object menu;
 	private Object pC;
 	private Object info;
-	private Object boutonJoueur;
 	private Object info5;
 	
 	public PremierPanel() {
@@ -24,26 +24,17 @@ public class PremierPanel extends JPanel implements ActionListener{
 		panelCentre pC = new panelCentre();
 		
 		JLabel info = new JLabel(TITRE);
-		JButton boutonJoueur = new JButton("JOUER");
-		boutonJoueur.addActionListener(this);
 		
 		String timeStamp = new SimpleDateFormat("dd/MM/yyyy à hh:mm:ss").format(Calendar.getInstance().getTime());
 		
 		
-		JLabel info5 = new JLabel("Login de <xxxx> pour application <xxxx> le " + timeStamp);
+		JLabel info5 = new JLabel(timeStamp);
 		
 		this.add(info, BorderLayout.NORTH);
 		this.add(pC, BorderLayout.CENTER);
-		this.add(boutonJoueur, BorderLayout.EAST);
 		this.add(info5, BorderLayout.SOUTH);
 	}
-	
-	@Override
-	public void actionPerformed(ActionEvent arg) {
-		System.out.println("lololol");
-	}
-	
-	
+		
 	
 	
 	public Object getMenuBar() {
@@ -78,13 +69,6 @@ public class PremierPanel extends JPanel implements ActionListener{
 		this.info = info;
 	}
 
-	public Object getBoutonJoueur() {
-		return boutonJoueur;
-	}
-
-	public void setBoutonJoueur(Object boutonJoueur) {
-		this.boutonJoueur = boutonJoueur;
-	}
 
 	public Object getInfo5() {
 		return info5;
@@ -96,6 +80,14 @@ public class PremierPanel extends JPanel implements ActionListener{
 
 	public static String getTitre() {
 		return TITRE;
+	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

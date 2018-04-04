@@ -1,7 +1,13 @@
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.LayoutManager2;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -12,14 +18,27 @@ public class panelCentre  extends JPanel implements ActionListener{
 	private Object pO;
 	
 	public panelCentre (){
-		this.setLayout(new GridLayout(1,3));
 		
-		JButton pM = new JButton("Jouer contre un ami");
-		pM.addActionListener(this);
+		this.setLayout(new GridLayout(3,1));
+		JButton pM = new JButton( new AbstractAction("jouer contre un ami") {
+	        @Override
+	        public void actionPerformed( ActionEvent e ) {
+	        	System.out.println("debut de jouer contre un ami");
+	     		this.setVisible(true);
+	        }
+	    });
 		
-		JButton pO = new JButton("Jouer contre l'ordinateur");
+		
+		/*JButton pO = new JButton("Jouer contre l'ordinateur");
 		pO.addActionListener(this);
+		*/
 		
+		JButton pO = new JButton( new AbstractAction("jouer contre l'IA") {
+	        @Override
+	        public void actionPerformed( ActionEvent e ) {
+	        	 System.out.println("debut de jouer contre l'IA");
+	        }
+	    });
 		
 		String[] options = {"Français","English"};
 		JComboBox choixLangue = new JComboBox(options);
@@ -28,20 +47,6 @@ public class panelCentre  extends JPanel implements ActionListener{
 		this.add(pO);
 		this.add(choixLangue);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
-		System.out.println("Ca passe --- avant le if "); 
-        if (e.getSource()==pO) {
-        	 System.out.println("Ca passe"); 
-		}else {
-			System.out.println("play contre une autre personne");
-		}
-
-	}
-
-	
 	
 	
 	public Object getpM() {
@@ -59,8 +64,12 @@ public class panelCentre  extends JPanel implements ActionListener{
 	public void setpO(Object pO) {
 		this.pO = pO;
 	}
-	
-	
 
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
-

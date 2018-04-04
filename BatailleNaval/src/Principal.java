@@ -1,10 +1,7 @@
 import javax.swing.*;
 
 
-/**
- * @author maxim
- *
- */
+
 public class Principal extends JFrame{
 	
 	public Principal() {
